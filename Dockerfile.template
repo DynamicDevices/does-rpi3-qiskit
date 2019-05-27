@@ -64,6 +64,10 @@ RUN export PYTHONPATH=/pyscf:$PYTHONPATH && export PYSCF_INC_DIR=/pyscf/pyscf/li
 # Install Jupyter
 RUN pip install jupyter
 
+# Add matplotlib support
+RUN install_packages pkg-config libfreetype6-dev
+RUN pip install matplotlib
+
 # Set our working directory
 WORKDIR /usr/src/app
 
@@ -76,5 +80,5 @@ ENV UDEV=1
 # main.py will run when container starts up on the device
 #CMD ["python","-u","src/main.py"]
 #CMD ["sleep", "infinity"]
-CMD ["./start.sh"]
+CMD ["bash", "start.sh"]
 
