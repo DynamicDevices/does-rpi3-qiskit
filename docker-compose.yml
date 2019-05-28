@@ -4,7 +4,7 @@ volumes:
 services:
     qiskit:
         build: ./qiskit
-        expose:
-            - "80"
+        ports:
+            - "80:80"
         volumes: 
             - 'resin-data:/data'
