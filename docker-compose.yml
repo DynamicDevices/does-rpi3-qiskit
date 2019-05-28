@@ -1,0 +1,10 @@
+version: '2'
+volumes: 
+    resin-data:
+services:
+    qiskit:
+        build: ./qiskit
+        expose:
+            - "80"
+        volumes: 
+            - 'resin-data:/data'
